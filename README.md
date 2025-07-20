@@ -94,7 +94,8 @@
             letter-spacing: -1px;
         }
         .header-branding .site-subtitle-header {
-            font-size: 12px;
+            font-size: 28px;
+            font-weight: bold;
             text-align: center;
             margin-bottom: 15px;
             border-bottom: 1px solid #fff;
@@ -353,11 +354,11 @@
                         <span>全国税チャンネル #動画</span>
                     </div>
                 </a>
-                 <a href="#" class="social-btn x-btn">
+                 <a href="https://x.com/guo_quan89661" class="social-btn x-btn" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     <span>X (Twitter)</span>
                 </a>
-                <a href="#" class="social-btn facebook-btn">
+                <a href="https://www.facebook.com/profile.php?id=61578354306982" class="social-btn facebook-btn" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,12c0-5.523-4.477-10-10-10S2,6.477,2,12c0,4.99,3.657,9.128,8.438,9.878V14.89H8.078v-2.89h2.359v-2.18c0-2.325,1.383-3.621,3.52-3.621c1.003,0,1.865,0.074,2.115,0.108v2.58h-1.52c-1.13,0-1.35,0.536-1.35,1.322v1.73h2.867l-0.375,2.89h-2.492v7.008C18.343,21.128,22,16.99,22,12z"/></svg>
                     <span>Facebook</span>
                 </a>
