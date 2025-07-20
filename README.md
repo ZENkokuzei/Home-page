@@ -346,7 +346,7 @@
             </div>
 
             <div class="header-social-buttons">
-                <a href="#" class="social-btn youtube-btn">
+                <a href="https://www.youtube.com/@%E5%85%A8%E5%9B%BD%E7%A8%8E%E5%8A%B4%E5%83%8D%E7%B5%84%E5%90%88%E4%BA%8B%E5%8B%99%E5%B1%80" class="social-btn youtube-btn" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.25,4,12,4,12,4S5.75,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.75,2,12,2,12s0,4.25,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.75,20,12,20,12,20s6.25,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.25,22,12,22,12S22,7.75,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg>
                     <div class="btn-text">
                         <strong>YouTube</strong>
