@@ -270,36 +270,30 @@
         .to-top-btn:hover { background-color: #0056b3; color: #fff; }
 
         /* Responsive Design */
+        /* Tablet & Landscape Phone */
         @media (max-width: 1100px) {
             .header-container {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .header-branding {
-                flex-basis: 100%;
-                max-width: 400px;
-                margin: 0 auto 20px auto;
-            }
-            .header-social-buttons {
-                order: 3;
-                margin-top: 10px;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .header-nav-area {
-                margin-bottom: 20px;
+                flex-direction: column;
+                gap: 25px;
             }
         }
+
+        /* Mobile Phone */
         @media (max-width: 768px) {
-            .footer-nav-column { width: 48%; }
+            .footer-nav-column { 
+                width: 48%; 
+                min-width: 0;
+            }
         }
+
         @media (max-width: 520px) {
             .header-social-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            .footer-nav-column { width: 100%; }
+            .footer-nav-column { 
+                width: 100%; 
+            }
         }
     </style>
 </head>
