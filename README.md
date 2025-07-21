@@ -14,7 +14,6 @@
             color: #333;
             font-size: 16px;
             line-height: 1.6;
-            transition: font-size 0.3s;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -126,50 +125,6 @@
             margin-right: 8px;
             fill: #fff;
             flex-shrink: 0;
-        }
-        .header-branding .font-sizer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 15px;
-        }
-        .header-branding .font-sizer span {
-            font-size: 14px;
-        }
-        .header-branding .font-sizer button {
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 2px 8px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .header-branding .font-sizer button.active {
-            background: #003366;
-            color: #fff;
-            border-color: #003366;
-        }
-        .header-branding .search-form {
-            display: flex;
-        }
-        .header-branding .search-form input {
-            width: 100%;
-            border: none;
-            padding: 8px;
-            border-radius: 3px 0 0 3px;
-            font-size: 14px;
-        }
-        .header-branding .search-form button {
-            background: #fff;
-            border: none;
-            padding: 0 10px;
-            cursor: pointer;
-            border-radius: 0 3px 3px 0;
-        }
-        .header-branding .search-form svg {
-            width: 18px;
-            height: 18px;
-            fill: #333;
         }
 
         /* 中央のSNSボタンエリア */
@@ -317,18 +272,6 @@
                         zenkokuzei@gmail.com
                     </a>
                 </p>
-                <div class="font-sizer">
-                    <span>文字サイズ</span>
-                    <button id="font-small">小</button>
-                    <button id="font-medium" class="active">中</button>
-                    <button id="font-large">大</button>
-                </div>
-                <form class="search-form">
-                    <input type="search" placeholder="サイト内検索">
-                    <button type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                    </button>
-                </form>
             </div>
 
             <div class="header-social-buttons">
@@ -414,26 +357,6 @@
                 });
             }
 
-            // 文字サイズ変更
-            const fontSizer = document.querySelector('.font-sizer');
-            if (fontSizer) {
-                const body = document.body;
-                const buttons = fontSizer.querySelectorAll('button');
-                buttons.forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        buttons.forEach(btn => btn.classList.remove('active'));
-                        button.classList.add('active');
-                        if (button.id === 'font-small') {
-                            body.style.fontSize = '14px';
-                        } else if (button.id === 'font-medium') {
-                            body.style.fontSize = '16px';
-                        } else if (button.id === 'font-large') {
-                            body.style.fontSize = '18px';
-                        }
-                    });
-                });
-            }
         });
     </script>
 </body>
