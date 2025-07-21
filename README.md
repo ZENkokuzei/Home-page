@@ -15,6 +15,9 @@
             font-size: 16px;
             line-height: 1.6;
             transition: font-size 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
@@ -202,6 +205,10 @@
         .social-btn.youtube-btn svg { fill: #FF0000; }
         .social-btn.x-btn svg { fill: #000000; }
         .social-btn.facebook-btn svg { fill: #1877F2; }
+        .social-btn.line-btn svg {
+            width: 24px;
+            height: 24px;
+        }
         .social-btn .btn-text {
             display: flex;
             flex-direction: column;
@@ -242,29 +249,13 @@
         .nav-item-title { font-size: 16px; font-weight: bold; line-height: 1.2; }
         .nav-item-subtitle { font-size: 12px; color: #f0c20c; font-weight: bold; margin-top: 4px; }
         
-        /* メインコンテンツエリア */
-        .main-wrapper { padding: 20px 0; }
-        .main-content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        section { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        h2.section-title { font-size: 24px; color: #0056b3; border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
-
-        /* コンテンツ詳細 */
-        .news-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .news-item:last-child { margin-bottom: 0; }
-        .news-item img { width: 120px; height: 80px; object-fit: cover; border-radius: 5px; flex-shrink: 0; }
-        .news-text time { font-size: 14px; color: #666; }
-        .news-text h3 { font-size: 16px; margin: 5px 0 0 0; }
-        .card { display: flex; align-items: center; background-color: #eaf4ff; border: 1px solid #bde0ff; border-radius: 8px; padding: 20px; }
-        .card-icon { margin-right: 15px; }
-        .card-content h3 { margin: 0 0 10px 0; color: #0056b3; }
-        .card-content p { margin: 0; font-size: 14px; }
-        .text-center { text-align: center; margin-top: 20px; }
-        .btn { display: inline-block; background-color: #007bff; color: #fff; padding: 10px 30px; border-radius: 20px; font-weight: bold; }
-        .btn:hover { background-color: #0056b3; color: #fff; }
-        .feed-placeholder { border: 1px dashed #ccc; height: 200px; display: flex; justify-content: center; align-items: center; color: #999; border-radius: 5px; background-color: #f9f9f9; }
-
         /* フッター */
-        .footer { background-color: #003366; color: #fff; padding: 40px 0 20px; margin-top: 20px; }
+        .footer { 
+            background-color: #003366; 
+            color: #fff; 
+            padding: 40px 0 20px; 
+            margin-top: auto; /* Push footer to the bottom */
+        }
         .footer a { color: #fff; }
         .footer a:hover { text-decoration: underline; }
         .footer-nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; }
@@ -362,6 +353,21 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,12c0-5.523-4.477-10-10-10S2,6.477,2,12c0,4.99,3.657,9.128,8.438,9.878V14.89H8.078v-2.89h2.359v-2.18c0-2.325,1.383-3.621,3.52-3.621c1.003,0,1.865,0.074,2.115,0.108v2.58h-1.52c-1.13,0-1.35,0.536-1.35,1.322v1.73h2.867l-0.375,2.89h-2.492v7.008C18.343,21.128,22,16.99,22,12z"/></svg>
                     <span>Facebook</span>
                 </a>
+                <a href="https://www.tiktok.com/@zenkokuzei" class="social-btn tiktok-btn" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.86-.95-6.43-2.8-1.58-1.85-2.03-4.35-1.7-6.73.33-2.37 1.8-4.28 3.57-5.52 1.85-1.29 3.9-1.96 5.96-1.98.02 1.56.02 3.13.01 4.69-.68.01-1.36.09-2.03.36-1.03.41-1.92 1.11-2.49 2.06-.63 1.05-.8 2.33-.65 3.58.17 1.43 1.02 2.7 2.25 3.45.95.58 2.09.78 3.19.57.85-.16 1.68-.52 2.31-1.09.63-.58 1.1-1.33 1.32-2.14.24-.9.28-1.87.23-2.82.01-1.35.01-2.7.01-4.05Z"/></svg>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://www.instagram.com/zenkokuzei/" class="social-btn instagram-btn" target="_blank" rel="noopener noreferrer">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span>インスタグラム</span>
+                </a>
+                 <a href="#" class="social-btn line-btn">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="#06C755" d="M20.5,0H3.5A3.5,3.5,0,0,0,0,3.5V20.5A3.5,3.5,0,0,0,3.5,24h17A3.5,3.5,0,0,0,24,20.5V3.5A3.5,3.5,0,0,0,20.5,0Z"/>
+                        <path fill="white" d="M12 5.5C8.13 5.5 5 8.36 5 11.91c0 2.29 1.44 4.3 3.61 5.43a1 1 0 0 0 .47.12c.11 0 .22-.03.32-.08 1.19-.6 2.62-1.22 2.62-1.22s.37.1.78.16c.4.06.81.09 1.2.09 3.87 0 7-2.86 7-6.41S15.87 5.5 12 5.5zm-3.9 7.2H7v-3h1.1v3zm2.6 0h-1.1v-3h1.1v3zm2.6 0h-1.1v-3h1.1v3zm3.7-1.4c0 .41-.34.75-.75.75h-2.2c-.41 0-.75-.34-.75-.75V10c0-.41.34-.75.75-.75h2.2c.41 0 .75.34.75.75v1.4z"/>
+                    </svg>
+                    <span>LINE</span>
+                </a>
             </div>
 
             <div class="header-nav-area">
@@ -376,30 +382,6 @@
             </div>
         </div>
     </header>
-
-    <!-- メインコンテンツ -->
-    <div class="main-wrapper">
-        <div class="container">
-            <div class="main-content-grid">
-                <section id="news">
-                    <h2 class="section-title">ニュース＆トピックス</h2>
-                    <div class="news-list">
-                        <article class="news-item"><img src="https://placehold.co/120x80/CCCCCC/FFFFFF?text=ニュース1" alt="ニュース画像1"><div class="news-text"><time datetime="2025-07-20">2025.07.20</time><h3><a href="#">2025国民春闘 News No.1を発行しました</a></h3></div></article>
-                        <article class="news-item"><img src="https://placehold.co/120x80/CCCCCC/FFFFFF?text=ニュース2" alt="ニュース画像2"><div class="news-text"><time datetime="2025-07-19">2025.07.19</time><h3><a href="#">全国税第46回定期大会第1号議案のポイント</a></h3></div></article>
-                    </div>
-                </section>
-                <section id="whats-new">
-                    <h2 class="section-title">What's New 新着情報</h2>
-                    <div class="card"><div class="card-icon"><img src="https://placehold.co/60x60/3498DB/FFFFFF?text=ICON" alt="アイコン"></div><div class="card-content"><h3>政策・提言</h3><p>全国税の政策や提言をまとめています。</p></div></div>
-                    <div class="text-center"><a href="#" class="btn">一覧を見る</a></div>
-                </section>
-                <section id="social">
-                    <h2 class="section-title">ソーシャルメディア</h2>
-                    <div class="social-container"><h3>Twitter</h3><div class="feed-placeholder"><p>Twitterのタイムライン</p></div></div>
-                </section>
-            </div>
-        </div>
-    </div>
 
     <!-- フッター -->
     <footer class="footer">
