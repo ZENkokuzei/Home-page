@@ -160,10 +160,6 @@
         .social-btn.youtube-btn svg { fill: #FF0000; }
         .social-btn.x-btn svg { fill: #000000; }
         .social-btn.facebook-btn svg { fill: #1877F2; }
-        .social-btn.line-btn svg {
-            width: 24px;
-            height: 24px;
-        }
         .social-btn .btn-text {
             display: flex;
             flex-direction: column;
@@ -172,6 +168,11 @@
         }
         .social-btn .btn-text strong { font-size: 14px; }
         .social-btn .btn-text span { font-size: 11px; font-weight: normal; }
+        .line-add-friend-btn {
+            width: 220px;
+            display: flex;
+            justify-content: center;
+        }
 
         /* 右側のナビゲーションエリア */
         .header-nav-area {
@@ -298,19 +299,15 @@
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     <span>インスタグラム</span>
                 </a>
-                 <a href="#" class="social-btn line-btn">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="#06C755" d="M20.5,0H3.5A3.5,3.5,0,0,0,0,3.5V20.5A3.5,3.5,0,0,0,3.5,24h17A3.5,3.5,0,0,0,24,20.5V3.5A3.5,3.5,0,0,0,20.5,0Z"/>
-                        <path fill="white" d="M12 5.5C8.13 5.5 5 8.36 5 11.91c0 2.29 1.44 4.3 3.61 5.43a1 1 0 0 0 .47.12c.11 0 .22-.03.32-.08 1.19-.6 2.62-1.22 2.62-1.22s.37.1.78.16c.4.06.81.09 1.2.09 3.87 0 7-2.86 7-6.41S15.87 5.5 12 5.5zm-3.9 7.2H7v-3h1.1v3zm2.6 0h-1.1v-3h1.1v3zm2.6 0h-1.1v-3h1.1v3zm3.7-1.4c0 .41-.34.75-.75.75h-2.2c-.41 0-.75-.34-.75-.75V10c0-.41.34-.75.75-.75h2.2c.41 0 .75.34.75.75v1.4z"/>
-                    </svg>
-                    <span>LINE</span>
-                </a>
+                 <div class="line-add-friend-btn">
+                    <a href="https://lin.ee/kjiVD70"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+                 </div>
             </div>
 
             <div class="header-nav-area">
                 <nav class="global-nav">
                     <div class="global-nav-grid">
-                        <a href="#" class="nav-item"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><span class="nav-item-title">全国税とは</span><span class="nav-item-subtitle">about</span></a>
+                        <a href="https://note.com/good_mimosa3389/n/n0202f1da46b0" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><span class="nav-item-title">全国税とは</span><span class="nav-item-subtitle">about</span></a>
                         <a href="#" class="nav-item"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.47 15.06L2 12.59l2.47-2.47.71.71L3.41 12.59l1.77 1.76-.71.71zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-3.24-2.75l-.71-.71 1.76-1.76-1.76-1.76.71-.71 2.47 2.47-2.47 2.47zm6.48 0l-2.47-2.47 2.47-2.47.71.71-1.76 1.76 1.76 1.76-.71.71z"/></svg></div><span class="nav-item-title">ニュース</span><span class="nav-item-subtitle">What's new</span></a>
                         <a href="#" class="nav-item"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div><span class="nav-item-title">オピニオン</span><span class="nav-item-subtitle">opinions</span></a>
                         <a href="#" class="nav-item"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><span class="nav-item-title">発行物</span><span class="nav-item-subtitle">publications</span></a>
