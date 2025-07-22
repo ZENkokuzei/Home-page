@@ -160,6 +160,10 @@
         .social-btn.youtube-btn svg { fill: #FF0000; }
         .social-btn.x-btn svg { fill: #000000; }
         .social-btn.facebook-btn svg { fill: #1877F2; }
+        .social-btn.line-btn svg {
+            width: 24px;
+            height: 24px;
+        }
         .social-btn .btn-text {
             display: flex;
             flex-direction: column;
@@ -214,8 +218,8 @@
         }
         .footer a { color: #fff; }
         .footer a:hover { text-decoration: underline; }
-        .footer-nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer-nav-column { width: 23%; min-width: 200px; margin-bottom: 20px; }
+        .footer-nav { display: flex; justify-content: space-around; margin-bottom: 30px; flex-wrap: wrap; }
+        .footer-nav-column { width: 30%; min-width: 200px; margin-bottom: 20px; }
         .footer-nav-column h4 { font-size: 18px; border-bottom: 1px solid #fff; padding-bottom: 10px; margin-bottom: 15px; }
         .footer-nav-column ul { list-style: none; padding: 0; margin: 0; }
         .footer-nav-column li { margin-bottom: 10px; }
@@ -321,9 +325,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-nav">
-                <div class="footer-nav-column"><h4>全国税について</h4><ul><li><a href="#">綱領</a></li><li><a href="#">規約</a></li><li><a href="#">運動の基本方向</a></li></ul></div>
+                <div class="footer-nav-column"><h4>全国税について</h4><ul><li><a href="#">綱領</a></li><li><a href="#">規約</a></li><li><a href="https://zenkokuzeijimukyok.wixstudio.com/zenkokuzei" target="_blank" rel="noopener noreferrer">組合費</a></li></ul></div>
                 <div class="footer-nav-column"><h4>政策・制度</h4><ul><li><a href="#">税制・税務行政</a></li><li><a href="#">勤務条件の改善</a></li><li><a href="#">定員・機構問題</a></li></ul></div>
-                <div class="footer-nav-column"><h4>各種資料</h4><ul><li><a href="#">News</a></li><li><a href="#">声明・談話</a></li><li><a href="#">調査・研究</a></li></ul></div>
                  <div class="footer-nav-column">
                     <h4>お問い合わせ</h4>
                     <p>〒100-0013<br>東京都千代田区霞ヶ関３－１－１<br>財務ビル内　全国税労働組合</p>
