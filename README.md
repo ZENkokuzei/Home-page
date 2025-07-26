@@ -498,16 +498,23 @@
 
     <a href="#" id="to-top" class="to-top-btn">↑</a>
 
-    <script>
-        function showPage(pageId) {
-            document.getElementById('main-page').style.display = 'none';
-            document.getElementById('kiyaku-page').style.display = 'none';
-            
-            document.getElementById(pageId).style.display = 'block';
-            window.scrollTo(0, 0);
-        }
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        document.addEventListener('DOMContentLoaded', function() {
+        // ★修正点: すべてのスクリプトをDOMContentLoaded内に移動
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // ページ切り替え機能
+            window.showPage = function(pageId) {
+                document.getElementById('main-page').style.display = 'none';
+                document.getElementById('kiyaku-page').style.display = 'none';
+                
+                document.getElementById(pageId).style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+
             // トップへ戻るボタン
             const toTopBtn = document.getElementById('to-top');
             if (toTopBtn) {
@@ -524,141 +531,129 @@
                 });
             }
 
-        });
-    </script>
-    
-    <!-- ▼▼▼ メッセージウォール用JavaScript ▼▼▼ -->
-    <script type="module">
-        // FirebaseのSDKをインポート
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+            // --- Firebaseの初期設定 ---
+            const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+            
+            let db, auth;
+            let userId = null;
 
-        // --- Firebaseの初期設定 ---
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        
-        let db, auth;
-        let userId = null;
+            try {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+            } catch (e) {
+                console.error("Firebase initialization failed:", e);
+                const stage = document.getElementById('stage');
+                if(stage) stage.innerHTML = '<p style="text-align:center; color:red; padding:1rem;">アプリケーションの読み込みに失敗しました。</p>';
+            }
 
-        try {
-            const app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-        } catch (e) {
-            console.error("Firebase initialization failed:", e);
-            const stage = document.getElementById('stage');
-            if(stage) stage.innerHTML = '<p style="text-align:center; color:red; padding:1rem;">アプリケーションの読み込みに失敗しました。</p>';
-        }
-
-        // --- 認証 ---
-        if(auth) {
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    userId = user.uid;
-                    console.log("Authenticated with UID:", userId);
-                    setupRealtimeListener();
-                } else {
-                    const signIn = initialAuthToken 
-                        ? signInWithCustomToken(auth, initialAuthToken)
-                        : signInAnonymously(auth);
-                    signIn.catch((error) => {
-                        console.error("Sign-in failed:", error);
-                    });
-                }
-            });
-        }
-
-        // --- DOM要素の取得 ---
-        const stage = document.getElementById('stage');
-        const form = document.getElementById('word-form');
-        const input = document.getElementById('word-input');
-        
-        // ★修正点: フォームの送信処理を再実装
-        if(form) {
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault(); 
-                if (!db) {
-                    console.error("Firestore is not initialized.");
-                    return;
-                }
-                let word = input.value.trim();
-                // 入力が空の場合は「全国税労働組合」をセット
-                if (word === '') {
-                    word = "全国税労働組合";
-                }
-                if (word && userId) {
-                    try {
-                        await addDoc(collection(db, `artifacts/${appId}/public/data/messages`), {
-                            text: word,
-                            createdAt: serverTimestamp(),
-                            authorId: userId
+            // --- 認証 ---
+            if(auth) {
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        console.log("Authenticated with UID:", userId);
+                        setupRealtimeListener();
+                    } else {
+                        const signIn = initialAuthToken 
+                            ? signInWithCustomToken(auth, initialAuthToken)
+                            : signInAnonymously(auth);
+                        signIn.catch((error) => {
+                            console.error("Sign-in failed:", error);
                         });
-                        input.value = ''; // 送信後に入力欄を空にする
-                    } catch (error) {
-                        console.error("Error adding document: ", error);
-                    }
-                }
-            });
-        }
-
-
-        const displayedMessageIds = new Set();
-
-        // --- リアルタイムリスナーの設定 ---
-        function setupRealtimeListener() {
-            if (!db) return;
-            const messagesRef = collection(db, `artifacts/${appId}/public/data/messages`);
-            const q = query(messagesRef);
-            onSnapshot(q, (snapshot) => {
-                snapshot.docChanges().forEach((change) => {
-                    if (change.type === "added" && !displayedMessageIds.has(change.doc.id)) {
-                        const messageData = change.doc.data();
-                        displayFloatingWord(messageData.text);
-                        displayedMessageIds.add(change.doc.id);
                     }
                 });
-            }, (error) => {
-                console.error("onSnapshot error:", error);
-            });
-        }
+            }
 
-        // カラフルな配色セット
-        const colorSchemes = [
-            { bg: '#ffadad', text: '#a60000' }, { bg: '#ffd6a5', text: '#b35f00' },
-            { bg: '#fdffb6', text: '#8a8c00' }, { bg: '#caffbf', text: '#007a0e' },
-            { bg: '#9bf6ff', text: '#006d77' }, { bg: '#a0c4ff', text: '#00358a' },
-            { bg: '#bdb2ff', text: '#3c00a6' }, { bg: '#ffc6ff', text: '#a600a6' },
-        ];
-
-        // --- フローティングメッセージ表示処理 ---
-        function displayFloatingWord(word) {
-            if(!stage) return;
-            const container = document.createElement('div');
-            container.className = 'word-container';
+            // --- DOM要素の取得 ---
+            const stage = document.getElementById('stage');
+            const form = document.getElementById('word-form');
+            const input = document.getElementById('word-input');
             
-            const wordElement = document.createElement('div');
-            wordElement.className = 'word';
-            wordElement.textContent = word;
+            if(form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault(); 
+                    if (!db) {
+                        console.error("Firestore is not initialized.");
+                        return;
+                    }
+                    let word = input.value.trim();
+                    if (word === '') {
+                        word = "全国税労働組合";
+                    }
+                    if (word && userId) {
+                        try {
+                            await addDoc(collection(db, `artifacts/${appId}/public/data/messages`), {
+                                text: word,
+                                createdAt: serverTimestamp(),
+                                authorId: userId
+                            });
+                            input.value = '';
+                        } catch (error) {
+                            console.error("Error adding document: ", error);
+                        }
+                    }
+                });
+            }
 
-            const color = colorSchemes[Math.floor(Math.random() * colorSchemes.length)];
-            wordElement.style.backgroundColor = color.bg;
-            wordElement.style.color = color.text;
-            wordElement.style.transform = `scale(${0.8 + Math.random() * 0.6})`;
+            const displayedMessageIds = new Set();
 
-            container.style.top = `${Math.random() * 90}%`; 
-            const duration = 12 + Math.random() * 12;
-            container.style.animationDuration = `${duration}s`;
-            container.style.animationDelay = `${Math.random() * 5}s`;
+            // --- リアルタイムリスナーの設定 ---
+            function setupRealtimeListener() {
+                if (!db) return;
+                const messagesRef = collection(db, `artifacts/${appId}/public/data/messages`);
+                const q = query(messagesRef);
+                onSnapshot(q, (snapshot) => {
+                    snapshot.docChanges().forEach((change) => {
+                        if (change.type === "added" && !displayedMessageIds.has(change.doc.id)) {
+                            const messageData = change.doc.data();
+                            displayFloatingWord(messageData.text);
+                            displayedMessageIds.add(change.doc.id);
+                        }
+                    });
+                }, (error) => {
+                    console.error("onSnapshot error:", error);
+                });
+            }
 
-            container.appendChild(wordElement);
-            stage.appendChild(container);
+            // カラフルな配色セット
+            const colorSchemes = [
+                { bg: '#ffadad', text: '#a60000' }, { bg: '#ffd6a5', text: '#b35f00' },
+                { bg: '#fdffb6', text: '#8a8c00' }, { bg: '#caffbf', text: '#007a0e' },
+                { bg: '#9bf6ff', text: '#006d77' }, { bg: '#a0c4ff', text: '#00358a' },
+                { bg: '#bdb2ff', text: '#3c00a6' }, { bg: '#ffc6ff', text: '#a600a6' },
+            ];
 
-            setTimeout(() => {
-                container.remove();
-            }, (duration + 5) * 1000);
-        }
+            // --- フローティングメッセージ表示処理 ---
+            function displayFloatingWord(word) {
+                if(!stage) return;
+                const container = document.createElement('div');
+                container.className = 'word-container';
+                
+                const wordElement = document.createElement('div');
+                wordElement.className = 'word';
+                wordElement.textContent = word;
+
+                const color = colorSchemes[Math.floor(Math.random() * colorSchemes.length)];
+                wordElement.style.backgroundColor = color.bg;
+                wordElement.style.color = color.text;
+                wordElement.style.transform = `scale(${0.8 + Math.random() * 0.6})`;
+
+                container.style.top = `${Math.random() * 90}%`; 
+                const duration = 12 + Math.random() * 12;
+                container.style.animationDuration = `${duration}s`;
+                container.style.animationDelay = `${Math.random() * 5}s`;
+
+                container.appendChild(wordElement);
+                stage.appendChild(container);
+
+                setTimeout(() => {
+                    container.remove();
+                }, (duration + 5) * 1000);
+            }
+        });
     </script>
 </body>
 </html>
