@@ -446,7 +446,6 @@
                     <nav class="global-nav">
                         <div class="global-nav-grid">
                             <a href="https://note.com/good_mimosa3389/n/n0202f1da46b0" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><span class="nav-item-title">全国税とは</span><span class="nav-item-subtitle">about</span></a>
-                            <!-- ★修正点: ニュースのリンク先を変更 -->
                             <a href="https://note.com/good_mimosa3389/n/nd418ce78cb2e" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.47 15.06L2 12.59l2.47-2.47.71.71L3.41 12.59l1.77 1.76-.71.71zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-3.24-2.75l-.71-.71 1.76-1.76-1.76-1.76.71-.71 2.47 2.47-2.47 2.47zm6.48 0l-2.47-2.47 2.47-2.47.71.71-1.76 1.76 1.76 1.76-.71.71z"/></svg></div><span class="nav-item-title">ニュース</span><span class="nav-item-subtitle">What's new</span></a>
                             <a href="https://note.com/good_mimosa3389/n/n6e3c277be43d" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div><span class="nav-item-title">オピニオン</span><span class="nav-item-subtitle">opinions</span></a>
                             <a href="#" class="nav-item"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><span class="nav-item-title">発行物</span><span class="nav-item-subtitle">publications</span></a>
@@ -475,6 +474,12 @@
                     </div>
                 </div>
                 
+                <!-- ▼▼▼ メッセージフォームをフッター内に再設置 ▼▼▼ -->
+                <form id="word-form">
+                    <input type="text" id="word-input" placeholder="ここにメッセージを入力...">
+                    <button type="submit" id="word-submit-btn">投稿</button>
+                </form>
+
                 <div class="copyright"><p>&copy; 2025 全国税労働組合 All Rights Reserved.</p></div>
             </div>
         </footer>
@@ -567,32 +572,36 @@
 
         // --- DOM要素の取得 ---
         const stage = document.getElementById('stage');
+        const form = document.getElementById('word-form');
+        const input = document.getElementById('word-input');
         
-        // ★修正点: エンターキーが押されたときの処理に変更
-        document.addEventListener('keydown', async (e) => {
-            // エンターキーが押された場合のみ実行
-            if (e.key === 'Enter') {
+        // ★修正点: フォームの送信処理を再実装
+        if(form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); 
                 if (!db) {
                     console.error("Firestore is not initialized.");
                     return;
                 }
-                
-                const word = "全国税労働組合";
-
+                let word = input.value.trim();
+                // 入力が空の場合は「全国税労働組合」をセット
+                if (word === '') {
+                    word = "全国税労働組合";
+                }
                 if (word && userId) {
                     try {
-                        // Firestoreにデータを保存
                         await addDoc(collection(db, `artifacts/${appId}/public/data/messages`), {
                             text: word,
                             createdAt: serverTimestamp(),
                             authorId: userId
                         });
+                        input.value = ''; // 送信後に入力欄を空にする
                     } catch (error) {
                         console.error("Error adding document: ", error);
                     }
                 }
-            }
-        });
+            });
+        }
 
 
         const displayedMessageIds = new Set();
