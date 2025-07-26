@@ -72,12 +72,12 @@
             margin-bottom: 10px;
         }
         .header-branding .logo-mark {
-            font-size: 22px;
+            font-size: 26px;
             font-weight: bold;
             color: #fff;
         }
         .header-branding .logo-text {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
         }
         .header-branding .site-title-header {
