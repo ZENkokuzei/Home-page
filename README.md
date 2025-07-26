@@ -369,7 +369,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-nav">
-                    <div class="footer-nav-column"><h4>全国税について</h4><ul><li><a href="#" onclick="showPage('kiyaku-page'); return false;">規約</a></li><li><a href="https://zenkokuzeijimukyok.wixstudio.com/zenkokuzei" target="_blank" rel="noopener noreferrer">組合費</a></li></ul></div>
+                    <div class="footer-nav-column"><h4>全国税について</h4><ul><li><a href="#" onclick="showPage('kiyaku-page'); return false;">規約</a></li><li><a href="https://zenkokuzeijimukyok.wixstudio.com/zenkokuzei" target="_blank" rel="noopener noreferrer">組合費</a></li><li><a href="https://note.com/good_mimosa3389/n/nc593aa9817e1" target="_blank" rel="noopener noreferrer">税研運動とは</a></li></ul></div>
                     <div class="footer-nav-column"><h4>運動方針</h4><ul><li><a href="https://note.com/good_mimosa3389/n/nbb28e63463ff" target="_blank" rel="noopener noreferrer">国民的課題</a></li><li><a href="https://note.com/good_mimosa3389/n/n6f35dab2c8fa" target="_blank" rel="noopener noreferrer">公務労働者の課題</a></li><li><a href="https://note.com/good_mimosa3389/n/ndbfaf05ef9cc" target="_blank" rel="noopener noreferrer">国税労働者の課題</a></li><li><a href="https://note.com/good_mimosa3389/n/n5f5eec5720fe" target="_blank" rel="noopener noreferrer">組織の拡大・強化</a></li><li><a href="https://note.com/good_mimosa3389/n/n62ba040d2cf3" target="_blank" rel="noopener noreferrer">税研運動方針</a></li></ul></div>
                      <div class="footer-nav-column">
                         <h4>お問い合わせ</h4>
