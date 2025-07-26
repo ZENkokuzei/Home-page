@@ -508,11 +508,16 @@
             
             // ページ切り替え機能
             window.showPage = function(pageId) {
-                document.getElementById('main-page').style.display = 'none';
-                document.getElementById('kiyaku-page').style.display = 'none';
+                const mainPage = document.getElementById('main-page');
+                const kiyakuPage = document.getElementById('kiyaku-page');
+                if (mainPage) mainPage.style.display = 'none';
+                if (kiyakuPage) kiyakuPage.style.display = 'none';
                 
-                document.getElementById(pageId).style.display = 'block';
-                window.scrollTo(0, 0);
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
             }
 
             // トップへ戻るボタン
@@ -538,6 +543,7 @@
             
             let db, auth;
             let userId = null;
+            let isFirebaseReady = false; // Firebaseの準備完了フラグ
 
             try {
                 const app = initializeApp(firebaseConfig);
@@ -546,54 +552,65 @@
             } catch (e) {
                 console.error("Firebase initialization failed:", e);
                 const stage = document.getElementById('stage');
-                if(stage) stage.innerHTML = '<p style="text-align:center; color:red; padding:1rem;">アプリケーションの読み込みに失敗しました。</p>';
-            }
-
-            // --- 認証 ---
-            if(auth) {
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        userId = user.uid;
-                        console.log("Authenticated with UID:", userId);
-                        setupRealtimeListener();
-                    } else {
-                        const signIn = initialAuthToken 
-                            ? signInWithCustomToken(auth, initialAuthToken)
-                            : signInAnonymously(auth);
-                        signIn.catch((error) => {
-                            console.error("Sign-in failed:", error);
-                        });
-                    }
-                });
+                if(stage) stage.innerHTML = '<p style="text-align:center; color:red; padding:1rem; background:white;">アプリケーションの読み込みに失敗しました。設定を確認してください。</p>';
+                return; // Firebaseが初期化できない場合は以降の処理を中断
             }
 
             // --- DOM要素の取得 ---
             const stage = document.getElementById('stage');
             const form = document.getElementById('word-form');
             const input = document.getElementById('word-input');
-            
-            if(form) {
+
+            // --- 認証状態の監視 ---
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    userId = user.uid;
+                    console.log("Authenticated with UID:", userId);
+                    if (!isFirebaseReady) {
+                        isFirebaseReady = true;
+                        initializeAppLogic(); // 最初の認証成功時にアプリのロジックを開始
+                    }
+                } else {
+                    const signIn = initialAuthToken 
+                        ? signInWithCustomToken(auth, initialAuthToken)
+                        : signInAnonymously(auth);
+                    signIn.catch((error) => {
+                        console.error("Sign-in failed:", error);
+                    });
+                }
+            });
+
+            // ★修正点: Firebase準備完了後に実行されるメインロジック
+            function initializeAppLogic() {
+                if (!stage || !form || !input) {
+                    console.error("Required DOM elements not found.");
+                    return;
+                }
+                setupFormListener();
+                setupRealtimeListener();
+            }
+
+            // --- フォーム送信リスナーの設定 ---
+            function setupFormListener() {
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault(); 
-                    if (!db) {
-                        console.error("Firestore is not initialized.");
+                    if (!db || !userId) {
+                        console.error("Firestore or User not ready.");
                         return;
                     }
                     let word = input.value.trim();
                     if (word === '') {
                         word = "全国税労働組合";
                     }
-                    if (word && userId) {
-                        try {
-                            await addDoc(collection(db, `artifacts/${appId}/public/data/messages`), {
-                                text: word,
-                                createdAt: serverTimestamp(),
-                                authorId: userId
-                            });
-                            input.value = '';
-                        } catch (error) {
-                            console.error("Error adding document: ", error);
-                        }
+                    try {
+                        await addDoc(collection(db, `artifacts/${appId}/public/data/messages`), {
+                            text: word,
+                            createdAt: serverTimestamp(),
+                            authorId: userId
+                        });
+                        input.value = '';
+                    } catch (error) {
+                        console.error("Error adding document: ", error);
                     }
                 });
             }
