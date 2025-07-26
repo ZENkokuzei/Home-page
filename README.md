@@ -474,12 +474,6 @@
                     </div>
                 </div>
                 
-                <!-- ▼▼▼ メッセージフォームをフッター内に再設置 ▼▼▼ -->
-                <form id="word-form">
-                    <input type="text" id="word-input" placeholder="ここにメッセージを入力...">
-                    <button type="submit" id="word-submit-btn">投稿</button>
-                </form>
-
                 <div class="copyright"><p>&copy; 2025 全国税労働組合 All Rights Reserved.</p></div>
             </div>
         </footer>
@@ -582,8 +576,8 @@
 
             // ★修正点: Firebase準備完了後に実行されるメインロジック
             function initializeAppLogic() {
-                if (!stage || !form || !input) {
-                    console.error("Required DOM elements not found.");
+                if (!stage) {
+                    console.error("Stage element not found.");
                     return;
                 }
                 setupFormListener();
@@ -592,27 +586,29 @@
 
             // --- フォーム送信リスナーの設定 ---
             function setupFormListener() {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault(); 
-                    if (!db || !userId) {
-                        console.error("Firestore or User not ready.");
-                        return;
-                    }
-                    let word = input.value.trim();
-                    if (word === '') {
-                        word = "全国税労働組合";
-                    }
-                    try {
-                        await addDoc(collection(db, `artifacts/${appId}/public/data/messages`), {
-                            text: word,
-                            createdAt: serverTimestamp(),
-                            authorId: userId
-                        });
-                        input.value = '';
-                    } catch (error) {
-                        console.error("Error adding document: ", error);
-                    }
-                });
+                if(form && input) {
+                    form.addEventListener('submit', async (e) => {
+                        e.preventDefault(); 
+                        if (!db || !userId) {
+                            console.error("Firestore or User not ready.");
+                            return;
+                        }
+                        let word = input.value.trim();
+                        if (word === '') {
+                            word = "全国税労働組合";
+                        }
+                        try {
+                            await addDoc(collection(db, `artifacts/${appId}/public/data/messages`), {
+                                text: word,
+                                createdAt: serverTimestamp(),
+                                authorId: userId
+                            });
+                            input.value = '';
+                        } catch (error) {
+                            console.error("Error adding document: ", error);
+                        }
+                    });
+                }
             }
 
             const displayedMessageIds = new Set();
