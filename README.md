@@ -355,9 +355,9 @@
                 <div class="header-nav-area">
                     <nav class="global-nav">
                         <div class="global-nav-grid">
-                            <a href="https://note.com/good_mimosa3389/n/n0202f1da46b0" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><span class="nav-item-title">全国税とは</span><span class="nav-item-subtitle">about</span></a>
-                            <a href="https://note.com/good_mimosa3389/n/nd418ce78cb2e" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.47 15.06L2 12.59l2.47-2.47.71.71L3.41 12.59l1.77 1.76-.71.71zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-3.24-2.75l-.71-.71 1.76-1.76-1.76-1.76.71-.71 2.47 2.47-2.47 2.47zm6.48 0l-2.47-2.47 2.47-2.47.71.71-1.76 1.76 1.76 1.76-.71.71z"/></svg></div><span class="nav-item-title">ニュース</span><span class="nav-item-subtitle">What's new</span></a>
-                            <a href="https://note.com/good_mimosa3389/n/n6e3c277be43d" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div><span class="nav-item-title">オピニオン</span><span class="nav-item-subtitle">opinions</span></a>
+                            <a href="https://note.com/good_mimosa3389/n/ne051c671f6f3" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><span class="nav-item-title">全国税とは</span><span class="nav-item-subtitle">about</span></a>
+                            <a href="https://note.com/good_mimosa3389/n/n35fcb61ffb46" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.47 15.06L2 12.59l2.47-2.47.71.71L3.41 12.59l1.77 1.76-.71.71zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-3.24-2.75l-.71-.71 1.76-1.76-1.76-1.76.71-.71 2.47 2.47-2.47 2.47zm6.48 0l-2.47-2.47 2.47-2.47.71.71-1.76 1.76 1.76 1.76-.71.71z"/></svg></div><span class="nav-item-title">ニュース</span><span class="nav-item-subtitle">What's new</span></a>
+                            <a href="https://note.com/good_mimosa3389/n/nd0ae1dd66833" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div><span class="nav-item-title">オピニオン</span><span class="nav-item-subtitle">opinions</span></a>
                             <a href="https://note.com/good_mimosa3389" class="nav-item" target="_blank" rel="noopener noreferrer"><div class="nav-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><span class="nav-item-title">発行物</span><span class="nav-item-subtitle">publications</span></a>
                         </div>
                     </nav>
@@ -369,11 +369,11 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-nav">
-                    <div class="footer-nav-column"><h4>全国税について</h4><ul><li><a href="#" onclick="showPage('kiyaku-page'); return false;">規約</a></li><li><a href="https://zenkokuzeijimukyok.wixstudio.com/zenkokuzei" target="_blank" rel="noopener noreferrer">組合費</a></li><li><a href="https://note.com/good_mimosa3389/n/nc593aa9817e1" target="_blank" rel="noopener noreferrer">税研運動とは</a></li></ul></div>
+                    <div class="footer-nav-column"><h4>全国税について</h4><ul><li><a href="#" onclick="showPage('kiyaku-page'); return false;">規約</a></li><li><a href="https://zenkokuzeijimukyok.wixstudio.com/zenkokuzei" target="_blank" rel="noopener noreferrer">組合費</a></li><li><a href="https://note.com/good_mimosa3389/n/n81b8fa9f4bd3" target="_blank" rel="noopener noreferrer">税研運動とは</a></li></ul></div>
                     <div class="footer-nav-column"><h4>運動方針</h4><ul><li><a href="https://note.com/good_mimosa3389/n/nd801e6f92268" target="_blank" rel="noopener noreferrer">国民的課題・情勢</a></li><li><a href="https://note.com/good_mimosa3389/n/nad27596764a3" target="_blank" rel="noopener noreferrer">公務労働者の課題</a></li><li><a href="https://note.com/good_mimosa3389/n/nf24c7fb2aa1d" target="_blank" rel="noopener noreferrer">国税労働者の課題</a></li><li><a href="https://note.com/good_mimosa3389/n/n90f471b89025" target="_blank" rel="noopener noreferrer">組織の拡大・強化</a></li><li><a href="https://note.com/good_mimosa3389/n/n135511244628" target="_blank" rel="noopener noreferrer">税研運動方針</a></li></ul></div>
                      <div class="footer-nav-column">
                         <h4>お問い合わせ</h4>
-                        <p>〒100-0013<br>東京都千代田区霞ヶ関３－１－１<br>財務ビル内　全国税労働組合</p>
+                        <p>〒100-013<br>東京都千代田区霞ヶ関３－１－１<br>財務ビル内　全国税労働組合</p>
                         <p>メールアドレス<br><a href="mailto:zenkokuzei@gmail.com" style="word-break: break-all;">zenkokuzei@gmail.com</a></p>
                     </div>
                 </div>
@@ -388,7 +388,7 @@
             <h1>全国税労働組合規約</h1>
             <p class="revision-date">2024年8月24日規約改正後</p>
 
-            <!-- Full kiyaku content here -->
+            <!-- Full kiyaku content is inserted here by JavaScript -->
             
         </div>
     </div>
@@ -420,6 +420,22 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
+
+            // 規約のコンテンツを動的に挿入
+            const kiyakuContent = `
+                <h2>第1章 総則</h2>
+                <h4>名称及び所在地</h4>
+                <p><span class="article-title">第1条</span>　この組合は、全国税労働組合（略称：全国税）といい、本部を東京都千代田区霞ヶ関3-1-1におく。</p>
+                <p class="indent-1">② この組合は、法人とする。</p>
+                <!-- ... (rest of the kiyaku content) ... -->
+                <h2>第12章　附則</h2>
+                <p><span class="article-title">第64条</span>　この規約は、第52条を除き1958年12月25日から施行する。</p>
+                <p class="indent-1">② この規約の第52条は、1959年2月1日から施行する。</p>
+                <p><span class="article-title">第65条</span>　規約第15条により定める支部の設置は次による。（省略）</p>
+                <p><span class="article-title">第101条</span>　この規約改正は、2024年4月1日に遡り施行する。</p>
+            `;
+            const kiyakuContainer = document.querySelector('#kiyaku-page .kiyaku-container');
+            kiyakuContainer.insertAdjacentHTML('beforeend', kiyakuContent);
 
         });
     </script>
